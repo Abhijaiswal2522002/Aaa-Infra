@@ -56,15 +56,15 @@ export function Footer() {
                     <ul className="space-y-4 text-sm text-slate-400">
                         <li className="flex items-start gap-3">
                             <MapPin size={18} className="mt-0.5 text-[var(--color-primary)]" />
-                            <span>123 Infrastructure Lane, Industrial Area, New Delhi, India</span>
+                            <span>236, Sirsa, Salaiya Khurd, Meja Road, Prayagraj, Uttar Pradesh - 212301</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <Phone size={18} className="text-[var(--color-primary)]" />
-                            <span>+91 98765 43210</span>
+                            <span>+91 91705 41976</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <Mail size={18} className="text-[var(--color-primary)]" />
-                            <span>info@aaainfra.com</span>
+                            <span>aaainfraa@gmail.com</span>
                         </li>
                     </ul>
                 </div>

@@ -30,7 +30,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-[var(--color-foreground)]">Head Office</h3>
-                                    <p className="text-[var(--color-secondary)]">123 Infrastructure Lane, Industrial Area,<br />New Delhi, India - 110020</p>
+                                    <p className="text-[var(--color-secondary)]">236, Sirsa, Salaiya Khurd, Meja Road,<br />Prayagraj, Uttar Pradesh - 212301</p>
                                 </div>
                             </div>
 
@@ -40,7 +40,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-[var(--color-foreground)]">Phone</h3>
-                                    <p className="text-[var(--color-secondary)]">+91 98765 43210</p>
+                                    <p className="text-[var(--color-secondary)]">+91 91705 41976</p>
                                     <p className="text-[var(--color-secondary)] text-sm">(Mon-Sat, 9am - 6pm)</p>
                                 </div>
                             </div>
@@ -51,8 +51,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-[var(--color-foreground)]">Email</h3>
-                                    <p className="text-[var(--color-secondary)]">info@aaainfra.com</p>
-                                    <p className="text-[var(--color-secondary)]">tenders@aaainfra.com</p>
+                                    <p className="text-[var(--color-secondary)]">aaainfraa@gmail.com</p>
                                 </div>
                             </div>
                         </div>
