@@ -1,32 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #003366;
-  --color-primary-light: #004d99;
-  --color-secondary: #64748b;
-  --color-accent: #f59e0b;
-  --color-background: #ffffff;
-  --color-foreground: #0f172a;
-  --color-muted: #f1f5f9;
-  --color-muted-foreground: #64748b;
+  --color-cream: #F2EDE4;
+  --color-dark-brown: #2C2416;
+  --color-gold: #D4A843;
+  --color-deep-dark: #1A1208;
+  --color-stone-gray: #8A7A65;
+  --color-navy: #002366;
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-barlow);
+  --font-condensed: var(--font-barlow-condensed);
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Keeping light theme as primary for corporate/industrial, but defining dark mode foundations if needed. 
-       However, requirements said "blue, grey, white theme", implying a light/corporate look.
-       I will force variables to stay light-ish or strictly follow the requested palette. */
-    --background: #ffffff;
-    --foreground: #0f172a;
-  }
+  --cream: #F2EDE4;
+  --dark-brown: #2C2416;
+  --gold: #D4A843;
+  --deep-dark: #1A1208;
+  --stone-gray: #8A7A65;
+  --navy: #002366;
+  
+  --background: var(--cream);
+  --foreground: var(--deep-dark);
 }
 
 body {
@@ -35,11 +31,47 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
-/* Custom Utilities if needed */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--dark-brown);
+  line-height: 1.2;
+}
+
+.label-stat {
+  font-family: var(--font-condensed);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Texture Overlay */
+.concrete-overlay {
+  position: relative;
+}
+
+.concrete-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/concrete-texture.png');
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gold-rule {
+  height: 2px;
+  background-color: var(--gold);
+  border: none;
+  margin: 0;
+}
+
 .container-custom {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
