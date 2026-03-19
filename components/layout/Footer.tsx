@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Triangle, Phone, Mail, MapPin, Facebook, Linkedin, Twitter } from "lucide-react";
 
 export function Footer() {
@@ -9,18 +10,25 @@ export function Footer() {
                 {/* Company Info */}
                 <div className="space-y-6">
                     <Link href="/" className="flex items-center gap-3 group">
-                        <div className="relative w-10 h-10 flex items-center justify-center bg-[#002366] text-white rotate-180">
-                            <Triangle fill="white" size={24} />
+                        <div className="relative w-12 h-12 flex items-center justify-center">
+                            <Image
+                                src="/logo.png"
+                                alt="AAA INFRA Logo"
+                                fill
+                                className="object-contain"
+                                priority
+                            />
                         </div>
-                        <div className="flex flex-col leading-none">
-                            <span className="text-2xl font-bold text-[#F2EDE4] tracking-tighter font-serif">AAA INFRA</span>
+                        <div className="flex flex-col leading-none text-left">
+                            <span className="text-2xl font-bold text-[#F2EDE4] tracking-tighter font-serif uppercase">AAA INFRA</span>
+                            <span className="text-[10px] font-bold text-[#D4A843] tracking-[0.3em] uppercase label-stat">Civil Construction</span>
                         </div>
                     </Link>
                     <p className="text-[#8A7A65] text-sm leading-relaxed font-sans">
                         Since 2010, providing authoritative civil construction solutions for India&apos;s industrial growth. Built to last 100 years.
                     </p>
                     <div className="flex gap-4 pt-2">
-                        <Link href="#" className="w-10 h-10 border border-[#D4A843] flex items-center justify-center text-[#D4A843] hover:bg-[#D4A843] hover:text-[#1A1208] transition-all"><Facebook size={18} /></Link>
+                        <Link href="https://www.facebook.com/profile.php?id=61578507328685#" className="w-10 h-10 border border-[#D4A843] flex items-center justify-center text-[#D4A843] hover:bg-[#D4A843] hover:text-[#1A1208] transition-all"><Facebook size={18} /></Link>
                         <Link href="#" className="w-10 h-10 border border-[#D4A843] flex items-center justify-center text-[#D4A843] hover:bg-[#D4A843] hover:text-[#1A1208] transition-all"><Linkedin size={18} /></Link>
                         <Link href="#" className="w-10 h-10 border border-[#D4A843] flex items-center justify-center text-[#D4A843] hover:bg-[#D4A843] hover:text-[#1A1208] transition-all"><Twitter size={18} /></Link>
                     </div>

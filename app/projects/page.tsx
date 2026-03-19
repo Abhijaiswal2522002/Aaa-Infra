@@ -6,40 +6,58 @@ import { Button } from "@/components/ui/Button";
 
 const projects = [
     {
-        title: "NTPC Thermal Power Plant expansion",
+        title: "NTPC Meja & Unchahar Roofing",
         client: "NTPC Limited",
-        description: "Civil construction of auxiliary buildings, critical pump house structures, and arterial road network development for the thermal unit expansion.",
+        description: "Supply and fabrication of color-coated metal roofing sheets and structural erection for turbine halls and auxiliary buildings.",
+        year: "2024",
+        location: "UP",
+        type: "Roofing & Fabrication",
+        image: "/high-lift-work.jpg"
+    },
+    {
+        title: "NTPC Patratu Dewatering",
+        client: "NTPC Limited",
+        description: "Large-scale site dewatering and water management services using high-capacity diesel pumps for major excavation pits.",
         year: "2023",
-        location: "Kaniha, Odisha",
-        type: "PSU / Industrial",
+        location: "Patratu, Jharkhand",
+        type: "Dewatering Services",
+        image: "/dewatering-pump.jpg"
+    },
+    {
+        title: "NSPCL Bhilai Sandblasting",
+        client: "NSPCL (NTPC-SAIL)",
+        description: "Precision copper slag sandblasting (SA 2.5) of critical tanks, vessels, and structural steel components.",
+        year: "2023",
+        location: "Bhilai, Chhattisgarh",
+        type: "Surface Treatment",
+        image: "/sandblasting.jpg"
+    },
+    {
+        title: "NTPC Gadarwara Ash Handling",
+        client: "NTPC Limited",
+        description: "Fabrication and erection of Ash Swallow systems and specialized ash handling infrastructure for the thermal power unit.",
+        year: "2022",
+        location: "Gadarwara, MP",
+        type: "Ash Handling",
+        image: "/workshop-team.jpg"
+    },
+    {
+        title: "NTPC Obra Structural Work",
+        client: "NTPC Limited",
+        description: "Heavy structural fabrication, erection, and site maintenance for industrial sheds and power infrastructure.",
+        year: "2022",
+        location: "Obra, UP",
+        type: "Industrial Civil",
         image: "https://images.unsplash.com/photo-1541975095191-04e137f29107?q=80&w=2072&auto=format&fit=crop"
     },
     {
-        title: "Industrial Logistics Hub",
-        client: "Private Sector Developer",
-        description: "Full site preparation, mass earthmoving (1,50,000 cu.m), and construction of VDF heavy-duty flooring for a regional distribution center.",
-        year: "2022",
-        location: "Varanasi, UP",
-        type: "Site Development",
-        image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-        title: "National Highway Drainage Net",
-        client: "NHAI Project",
-        description: "Design and execution of reinforced concrete line drains and large culverts across a 25km stretch of national highway connectivity.",
-        year: "2024",
-        location: "Prayagraj - Rewa",
-        type: "Infrastructure",
-        image: "https://images.unsplash.com/photo-1517089534706-3a5e0aa2938b?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-        title: "Specialized Concrete Foundations",
-        client: "Confidential Steel Plant",
-        description: "Execution of high-tolerance heavy foundations for rolling mill machinery, requiring continuous 48-hour concrete pouring cycles.",
+        title: "NTPC Kaniha Expansion",
+        client: "NTPC Limited",
+        description: "Civil construction of auxiliary buildings, critical pump house structures, and arterial road network development.",
         year: "2021",
-        location: "Chhattisgarh",
-        type: "Structural Civil",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop"
+        location: "Kaniha, Odisha",
+        type: "Civil Infrastructure",
+        image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop"
     }
 ];
 

@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { Menu, X, Triangle } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -22,11 +23,17 @@ export function Header() {
             <div className="container-custom mx-auto flex h-20 items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-3 group">
-                    <div className="relative w-10 h-10 flex items-center justify-center bg-[#002366] text-white rotate-180">
-                         <Triangle fill="white" size={24} />
+                    <div className="relative w-12 h-12 flex items-center justify-center">
+                        <Image
+                            src="/logo.png"
+                            alt="AAA INFRA Logo"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
                     </div>
                     <div className="flex flex-col leading-none">
-                        <span className="text-2xl font-bold text-[#2C2416] tracking-tighter font-serif">AAA INFRA</span>
+                        <span className="text-2xl font-bold text-[#2C2416] tracking-tighter font-serif uppercase">AAA INFRA</span>
                         <span className="text-[10px] font-bold text-[#8A7A65] tracking-[0.3em] uppercase label-stat">Civil Construction</span>
                     </div>
                 </Link>

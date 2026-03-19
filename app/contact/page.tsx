@@ -93,10 +93,14 @@ export default function ContactPage() {
                                 <div className="space-y-2">
                                     <label htmlFor="service" className="text-xs font-bold text-[#D4A843] uppercase label-stat tracking-widest">Service of Interest</label>
                                     <select id="service" className="w-full h-12 bg-transparent border-b-2 border-[#D4A843]/30 text-[#F2EDE4] focus:outline-none focus:border-[#D4A843] transition-colors appearance-none">
-                                        <option className="bg-[#2C2416]">Industrial Civil Works</option>
-                                        <option className="bg-[#2C2416]">Infrastructure Development</option>
-                                        <option className="bg-[#2C2416]">Site Preparation</option>
-                                        <option className="bg-[#2C2416]">Structural Masonry</option>
+                                        <option className="bg-[#2C2416]">Water Tanker Supply</option>
+                                        <option className="bg-[#2C2416]">Metal Roofing & Fabrication</option>
+                                        <option className="bg-[#2C2416]">Diesel Dewatering Pumps</option>
+                                        <option className="bg-[#2C2416]">Road Sweeping Services</option>
+                                        <option className="bg-[#2C2416]">Copper Slag Sandblasting</option>
+                                        <option className="bg-[#2C2416]">Ash Swallow Fabrication</option>
+                                        <option className="bg-[#2C2416]">Excavation & Site Preparation</option>
+                                        <option className="bg-[#2C2416]">Civil Infrastructure</option>
                                     </select>
                                 </div>
                                 <div className="space-y-2">

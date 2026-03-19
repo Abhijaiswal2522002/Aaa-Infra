@@ -27,7 +27,7 @@ export default function AboutPage() {
                                 <History size={24} />
                                 <span className="font-bold uppercase label-stat tracking-widest">Estd. 2010</span>
                             </div>
-                            <h2 className="text-5xl font-bold text-[#2C2416] leading-tight">Grounded in Truth, <br/>Built on Dedication.</h2>
+                            <h2 className="text-5xl font-bold text-[#2C2416] leading-tight">Grounded in Truth, <br />Built on Dedication.</h2>
                             <div className="w-20 h-1 bg-[#D4A843]"></div>
                             <div className="space-y-6 text-[#2C2416]/80 text-lg leading-relaxed font-sans">
                                 <p>
@@ -43,8 +43,8 @@ export default function AboutPage() {
                         </div>
                         <div className="relative">
                             <div className="aspect-[4/5] bg-[#2C2416] relative overflow-hidden ring-offset-8 ring-4 ring-[#D4A843]">
-                                <Image 
-                                    src="/sandblasting.jpg"
+                                <Image
+                                    src="/logo.png"
                                     alt="Heritage Construction"
                                     fill
                                     className="object-cover opacity-70 grayscale hover:grayscale-0 transition-all duration-700"
@@ -94,14 +94,14 @@ export default function AboutPage() {
             {/* Leadership Section / Quote */}
             <section className="py-32 bg-[#F2EDE4]">
                 <div className="container-custom max-w-4xl mx-auto text-center space-y-12">
-                     <Award className="w-16 h-16 text-[#D4A843] mx-auto opacity-50" />
-                     <blockquote className="text-4xl md:text-5xl font-serif italic text-[#2C2416] leading-tight">
+                    <Award className="w-16 h-16 text-[#D4A843] mx-auto opacity-50" />
+                    <blockquote className="text-4xl md:text-5xl font-serif italic text-[#2C2416] leading-tight">
                         &quot;At AAA INFRA, we believe that infrastructure is the bone structure of a nation. We build it to be strong, enduring, and honest.&quot;
-                     </blockquote>
-                     <div className="space-y-2">
+                    </blockquote>
+                    <div className="space-y-2">
                         <p className="text-[#2C2416] font-bold uppercase tracking-widest label-stat">Managing Director</p>
                         <p className="text-[#8A7A65] text-sm">AAA INFRA STRUCTURES</p>
-                     </div>
+                    </div>
                 </div>
             </section>
             {/* Gold CTA Band */}

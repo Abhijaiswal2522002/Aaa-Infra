@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+
 import { Playfair_Display, Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 
@@ -22,7 +24,11 @@ const barlowCondensed = Barlow_Condensed({
 export const metadata: Metadata = {
   title: "AAA INFRA | Leaders in Civil Infrastructure",
   description: "Estd. 2010. AAA Infra delivers heritage-grade civil construction and industrial projects with precision and craftsmanship.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
+
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -41,6 +47,7 @@ export default function RootLayout({
         <main className="flex-grow">{children}</main>
         <Footer />
       </body>
+
     </html>
   );
 }
