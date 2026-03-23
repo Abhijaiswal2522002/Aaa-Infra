@@ -22,8 +22,9 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  title: "AAA INFRA | Leaders in Civil Infrastructure",
-  description: "Estd. 2010. AAA Infra delivers heritage-grade civil construction and industrial projects with precision and craftsmanship.",
+  title: "AAA Infra | Industrial Roofing, Dewatering & Fabrication Experts",
+  description: "AAA Infra provides premium industrial services: Metal Roofing Sheet Manufacturing, Diesel Dewatering Pump Rental, Fabrication, and Sandblasting. Trusted by NTPC & NSPCL.",
+  keywords: "roofing sheet manufacturer, dewatering pump rental, sandblasting services, industrial contractor India, AAA Infra, metal roofing India, utility services NTPC",
   icons: {
     icon: "/logo.png",
   },
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { StickyCTA } from "@/components/ui/StickyCTA";
 
 export default function RootLayout({
   children,
@@ -46,6 +48,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <StickyCTA />
       </body>
 
     </html>

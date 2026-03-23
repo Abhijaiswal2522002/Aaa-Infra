@@ -1,12 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #F2EDE4;
-  --color-dark-brown: #2C2416;
-  --color-gold: #D4A843;
-  --color-deep-dark: #1A1208;
-  --color-stone-gray: #8A7A65;
-  --color-navy: #002366;
+  --color-navy: #1B2B4E;
+  --color-industrial-gray: #4A4A4A;
+  --color-gray-light: #E5E5E5;
+  --color-accent-blue: #2563EB;
+  --color-off-white: #F9FAFB;
 
   --font-serif: var(--font-playfair);
   --font-sans: var(--font-barlow);
@@ -14,15 +13,14 @@
 }
 
 :root {
-  --cream: #F2EDE4;
-  --dark-brown: #2C2416;
-  --gold: #D4A843;
-  --deep-dark: #1A1208;
-  --stone-gray: #8A7A65;
-  --navy: #002366;
+  --navy: #1B2B4E;
+  --industrial-gray: #4A4A4A;
+  --gray-light: #E5E5E5;
+  --accent-blue: #2563EB;
+  --off-white: #F9FAFB;
   
-  --background: var(--cream);
-  --foreground: var(--deep-dark);
+  --background: var(--off-white);
+  --foreground: #111827;
 }
 
 body {
@@ -35,43 +33,45 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  color: var(--dark-brown);
-  line-height: 1.2;
+  font-family: var(--font-sans); /* Switching titles to sans for that modern industrial feel */
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
 .label-stat {
   font-family: var(--font-condensed);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* Texture Overlay */
-.concrete-overlay {
-  position: relative;
-}
-
-.concrete-overlay::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url('/concrete-texture.png');
-  background-repeat: repeat;
-  opacity: 0.05;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.gold-rule {
-  height: 2px;
-  background-color: var(--gold);
-  border: none;
-  margin: 0;
+  letter-spacing: 0.1em;
+  font-weight: 700;
 }
 
 .container-custom {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
+}
+
+/* Custom Utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+.industrial-border {
+  border: 1px solid var(--gray-light);
+}
+
+.industrial-shadow {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.hover-lift {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
 }

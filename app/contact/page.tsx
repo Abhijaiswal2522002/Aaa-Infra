@@ -1,131 +1,234 @@
-import { Section } from "@/components/ui/Section";
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { Phone, Mail, MapPin, Clock, ArrowRight, ShieldCheck } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ArrowRight, ShieldCheck, MessageSquare, Building2 } from "lucide-react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import emailjs from "@emailjs/browser";
 
 export default function ContactPage() {
+    const [formData, setFormData] = useState({
+        name: "",
+        phone: "",
+        service: "Metal Roofing Sheets",
+        message: ""
+    });
+    const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus("sending");
+
+        try {
+            await emailjs.send(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+                {
+                    from_name: formData.name,
+                    from_phone: formData.phone,
+                    service_type: formData.service,
+                    message: formData.message,
+                    to_email: "aaainfraa@gmail.com",
+                },
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+            );
+            setStatus("success");
+            setFormData({ name: "", phone: "", service: "Metal Roofing Sheets", message: "" });
+        } catch (error) {
+            console.error("EmailJS Error:", error);
+            setStatus("error");
+        }
+    };
+
     return (
-        <div className="flex flex-col concrete-overlay">
+        <div className="flex flex-col">
             {/* Hero Section */}
-            <section className="bg-[#1A1208] text-[#F2EDE4] py-32 border-b-4 border-[#D4A843]">
+            <section className="bg-navy text-off-white py-32 border-b border-off-white/10">
                 <div className="container-custom text-center space-y-6">
-                    <span className="text-[#D4A843] font-bold tracking-[0.4em] uppercase label-stat text-sm">Establish Connection</span>
-                    <h1 className="text-6xl md:text-8xl font-bold font-serif leading-tight">
+                    <motion.span
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-accent-blue font-bold tracking-[0.4em] uppercase label-stat text-sm"
+                    >
+                        Establish Connection
+                    </motion.span>
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-6xl md:text-8xl font-black leading-tight uppercase"
+                    >
                         THE HEAD <br />
-                        <span className="text-[#D4A843]">QUARTERS.</span>
-                    </h1>
+                        <span className="text-accent-blue">QUARTERS.</span>
+                    </motion.h1>
                 </div>
             </section>
 
             {/* Contact Grid */}
-            <section className="py-24 bg-[#F2EDE4]">
+            <section className="py-24 bg-off-white">
                 <div className="container-custom">
                     <div className="grid lg:grid-cols-2 gap-20">
                         {/* Contact Details */}
-                        <div className="space-y-12">
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="space-y-12"
+                        >
                             <div className="space-y-6">
-                                <h2 className="text-5xl font-bold text-[#2C2416] font-serif leading-tight">Visit our Base <br/>of Operations.</h2>
-                                <p className="text-[#8A7A65] text-lg leading-relaxed">
-                                    Whether you represent a PSU, a private developer, or require heavy industrial services, we are ready to discuss your project requirements in detail.
+                                <h2 className="text-4xl md:text-5xl font-black text-navy leading-tight uppercase">Visit our Base <br />of Operations.</h2>
+                                <div className="w-20 h-2 bg-accent-blue"></div>
+                                <p className="text-industrial-gray text-lg leading-relaxed font-medium">
+                                    Whether you represent a PSU like NTPC, a private developer, or require heavy industrial services, we are ready to discuss your project requirements with technical precision.
                                 </p>
                             </div>
 
-                            <div className="space-y-8">
+                            <div className="grid gap-8">
                                 <div className="flex items-start gap-6 group">
-                                    <div className="bg-[#D4A843] p-4 text-[#1A1208] group-hover:scale-110 transition-transform">
+                                    <div className="bg-navy p-4 text-off-white group-hover:bg-accent-blue transition-colors rounded-none">
                                         <MapPin size={28} />
                                     </div>
                                     <div className="space-y-2">
-                                        <h3 className="text-xl font-bold text-[#2C2416] uppercase label-stat tracking-widest text-sm">Prayagraj HQ</h3>
-                                        <p className="text-[#2C2416]/80 text-lg leading-relaxed font-sans">
-                                            236, Sirsa, Salaiya Khurd, Meja Road,<br />Prayagraj, Uttar Pradesh - 212301
+                                        <h3 className="text-xs font-bold text-accent-blue uppercase label-stat tracking-widest">Prayagraj HQ</h3>
+                                        <p className="text-navy text-xl font-black leading-tight uppercase">
+                                            236, Sirsa, Salaiya Khurd, <br />Meja Road, Prayagraj, <br />UP - 212301
                                         </p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start gap-6 group">
-                                    <div className="bg-[#2C2416] p-4 text-[#D4A843] group-hover:scale-110 transition-transform">
+                                    <div className="bg-navy p-4 text-off-white group-hover:bg-accent-blue transition-colors rounded-none">
                                         <Phone size={28} />
                                     </div>
                                     <div className="space-y-2">
-                                        <h3 className="text-xl font-bold text-[#2C2416] uppercase label-stat tracking-widest text-sm">Hotline</h3>
-                                        <p className="text-[#2C2416]/80 text-2xl font-bold">+91 91705 41976</p>
-                                        <p className="text-[#8A7A65] text-sm uppercase font-bold label-stat">Mon-Sat, 9am - 6pm IST</p>
+                                        <h3 className="text-xs font-bold text-accent-blue uppercase label-stat tracking-widest">Industrial Hotline</h3>
+                                        <p className="text-navy text-3xl font-black">+91 91705 41976</p>
+                                        <p className="text-industrial-gray text-xs font-bold uppercase label-stat">Direct site assistance available</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start gap-6 group">
-                                    <div className="bg-[#D4A843] p-4 text-[#1A1208] group-hover:scale-110 transition-transform">
+                                    <div className="bg-navy p-4 text-off-white group-hover:bg-accent-blue transition-colors rounded-none">
                                         <Mail size={28} />
                                     </div>
                                     <div className="space-y-2">
-                                        <h3 className="text-xl font-bold text-[#2C2416] uppercase label-stat tracking-widest text-sm">Direct Mail</h3>
-                                        <p className="text-[#2C2416]/80 text-lg font-bold">aaainfraa@gmail.com</p>
+                                        <h3 className="text-xs font-bold text-accent-blue uppercase label-stat tracking-widest">Official Email</h3>
+                                        <p className="text-navy text-xl font-black uppercase">aaainfraa@gmail.com</p>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div className="pt-8 border-t border-[#D4A843]/20 space-y-4">
-                                <div className="flex items-center gap-4 text-[#D4A843]">
-                                    <ShieldCheck size={20} />
-                                    <span className="font-bold uppercase label-stat tracking-[0.2em] text-sm">NTPC Registered & ISO Certified Firm</span>
-                                </div>
+
+                            <div className="pt-8 border-t border-navy/10 flex gap-4">
+                                <Link href="https://wa.me/919170541976" className="flex-1">
+                                    <Button className="w-full bg-green-600 hover:bg-green-700 h-14 uppercase label-stat font-bold">
+                                        <MessageSquare className="mr-2" size={18} /> WhatsApp
+                                    </Button>
+                                </Link>
+                                <Link href="tel:+919170541976" className="flex-1">
+                                    <Button variant="outline" className="w-full border-navy text-navy hover:bg-navy hover:text-off-white h-14 uppercase label-stat font-bold">
+                                        Call Now
+                                    </Button>
+                                </Link>
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Contact Form */}
-                        <div className="bg-[#2C2416] p-12 relative overflow-hidden ring-offset-8 ring-4 ring-[#D4A843]">
-                            <h2 className="text-3xl font-bold text-[#F2EDE4] mb-8 font-serif uppercase tracking-widest">Request a Consultation</h2>
-                            <form className="space-y-6 relative z-10">
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="bg-navy p-12 industrial-shadow relative overflow-hidden"
+                        >
+                            <h2 className="text-3xl font-black text-off-white mb-8 uppercase tracking-tight">Request <span className="text-accent-blue">Technical Quote</span></h2>
+                            <form className="space-y-6 relative z-10" onSubmit={handleSubmit}>
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
-                                        <label htmlFor="name" className="text-xs font-bold text-[#D4A843] uppercase label-stat tracking-widest">Full Name</label>
-                                        <input type="text" id="name" className="w-full h-12 bg-transparent border-b-2 border-[#D4A843]/30 text-[#F2EDE4] focus:outline-none focus:border-[#D4A843] transition-colors" placeholder="e.g. Rahul Singh" />
+                                        <label htmlFor="name" className="text-xs font-bold text-gray-light/40 uppercase label-stat tracking-widest">Full Name</label>
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            required
+                                            className="w-full h-12 bg-off-white/5 border border-off-white/10 p-4 text-off-white focus:outline-none focus:border-accent-blue transition-colors font-bold"
+                                            placeholder="e.g. Rahul Singh"
+                                            value={formData.name}
+                                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                        />
                                     </div>
                                     <div className="space-y-2">
-                                        <label htmlFor="phone" className="text-xs font-bold text-[#D4A843] uppercase label-stat tracking-widest">Contact Phone</label>
-                                        <input type="text" id="phone" className="w-full h-12 bg-transparent border-b-2 border-[#D4A843]/30 text-[#F2EDE4] focus:outline-none focus:border-[#D4A843] transition-colors" placeholder="+91 00000 00000" />
+                                        <label htmlFor="phone" className="text-xs font-bold text-gray-light/40 uppercase label-stat tracking-widest">Contact Phone</label>
+                                        <input
+                                            type="text"
+                                            id="phone"
+                                            required
+                                            className="w-full h-12 bg-off-white/5 border border-off-white/10 p-4 text-off-white focus:outline-none focus:border-accent-blue transition-colors font-bold"
+                                            placeholder="+91 00000 00000"
+                                            value={formData.phone}
+                                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                        />
                                     </div>
                                 </div>
                                 <div className="space-y-2">
-                                    <label htmlFor="email" className="text-xs font-bold text-[#D4A843] uppercase label-stat tracking-widest">Email Address</label>
-                                    <input type="email" id="email" className="w-full h-12 bg-transparent border-b-2 border-[#D4A843]/30 text-[#F2EDE4] focus:outline-none focus:border-[#D4A843] transition-colors" placeholder="your@email.com" />
-                                </div>
-                                <div className="space-y-2">
-                                    <label htmlFor="service" className="text-xs font-bold text-[#D4A843] uppercase label-stat tracking-widest">Service of Interest</label>
-                                    <select id="service" className="w-full h-12 bg-transparent border-b-2 border-[#D4A843]/30 text-[#F2EDE4] focus:outline-none focus:border-[#D4A843] transition-colors appearance-none">
-                                        <option className="bg-[#2C2416]">Water Tanker Supply</option>
-                                        <option className="bg-[#2C2416]">Metal Roofing & Fabrication</option>
-                                        <option className="bg-[#2C2416]">Diesel Dewatering Pumps</option>
-                                        <option className="bg-[#2C2416]">Road Sweeping Services</option>
-                                        <option className="bg-[#2C2416]">Copper Slag Sandblasting</option>
-                                        <option className="bg-[#2C2416]">Ash Swallow Fabrication</option>
-                                        <option className="bg-[#2C2416]">Excavation & Site Preparation</option>
-                                        <option className="bg-[#2C2416]">Civil Infrastructure</option>
+                                    <label htmlFor="service" className="text-xs font-bold text-gray-light/40 uppercase label-stat tracking-widest">Industrial Service</label>
+                                    <select
+                                        id="service"
+                                        className="w-full h-12 bg-off-white/5 border border-off-white/10 px-4 text-off-white focus:outline-none focus:border-accent-blue transition-colors appearance-none font-bold"
+                                        value={formData.service}
+                                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                                    >
+                                        <option className="bg-navy">Metal Roofing Sheets</option>
+                                        <option className="bg-navy">Industrial Fabrication</option>
+                                        <option className="bg-navy">Diesel Dewatering Pumps</option>
+                                        <option className="bg-navy">Copper Slag Sandblasting</option>
+                                        <option className="bg-navy">Water Tanker Supply</option>
+                                        <option className="bg-navy">Road Sweeping Services</option>
                                     </select>
                                 </div>
                                 <div className="space-y-2">
-                                    <label htmlFor="message" className="text-xs font-bold text-[#D4A843] uppercase label-stat tracking-widest">Project Description</label>
-                                    <textarea id="message" rows={4} className="w-full bg-transparent border-b-2 border-[#D4A843]/30 text-[#F2EDE4] focus:outline-none focus:border-[#D4A843] transition-colors pt-4" placeholder="Briefly describe your requirements..." />
+                                    <label htmlFor="message" className="text-xs font-bold text-gray-light/40 uppercase label-stat tracking-widest">Project Requirements</label>
+                                    <textarea
+                                        id="message"
+                                        rows={4}
+                                        required
+                                        className="w-full bg-off-white/5 border border-off-white/10 p-4 text-off-white focus:outline-none focus:border-accent-blue transition-colors resize-none font-bold"
+                                        placeholder="Describe your site requirements..."
+                                        value={formData.message}
+                                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                    />
                                 </div>
-                                <Button type="button" className="w-full bg-[#D4A843] text-[#1A1208] hover:bg-[#F2EDE4] transition-all rounded-none h-16 uppercase label-stat font-bold text-lg mt-4">
-                                    Submit RFP <ArrowRight className="ml-2" />
+                                <Button
+                                    type="submit"
+                                    disabled={status === "sending"}
+                                    className="w-full bg-accent-blue text-off-white hover:bg-off-white hover:text-navy transition-all h-16 uppercase label-stat font-black text-lg mt-4 disabled:opacity-50"
+                                >
+                                    {status === "sending" ? "Processing ..." : "Submit Request"} <ArrowRight className="ml-2" />
                                 </Button>
+                                {status === "success" && (
+                                    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-green-400 font-bold text-center mt-4">
+                                        Request sent successfully! We will contact you shortly.
+                                    </motion.p>
+                                )}
+                                {status === "error" && (
+                                    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-400 font-bold text-center mt-4">
+                                        An error occurred. Please try again or call us directly.
+                                    </motion.p>
+                                )}
                             </form>
-                             {/* Decorative Texture in Form */}
-                             <div className="absolute inset-0 opacity-5 pointer-events-none">
-                                <MapPin className="absolute -bottom-20 -right-20 w-80 h-80 rotate-12" />
-                             </div>
-                        </div>
+                            {/* Decorative Texture */}
+                            <div className="absolute top-0 right-0 p-8 text-off-white/5">
+                                <Building2 size={160} />
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
 
             {/* Logistics Assurance */}
-            <section className="py-20 bg-[#1A1208] border-t-8 border-[#2C2416]">
-                <div className="container-custom flex flex-col items-center text-center space-y-8">
-                     <Clock className="w-12 h-12 text-[#D4A843] opacity-50" />
-                     <h2 className="text-3xl font-bold text-[#F2EDE4] font-serif uppercase tracking-widest">Guaranteed Response in 24 Hours.</h2>
-                     <p className="text-[#8A7A65] max-w-lg">Our leadership evaluates every inquiry personally to ensure the highest standards of technical assessment.</p>
+            <section className="py-20 bg-off-white border-y border-navy/5">
+                <div className="container-custom flex flex-col items-center text-center space-y-6">
+                    <Clock className="w-12 h-12 text-accent-blue opacity-50" />
+                    <h2 className="text-3xl font-black text-navy uppercase tracking-tight">Guaranteed Response within 24 Hours.</h2>
+                    <p className="text-industrial-gray font-medium max-w-lg">Our leadership evaluates every technical inquiry personally to ensure the highest standards of project assessment.</p>
                 </div>
             </section>
         </div>

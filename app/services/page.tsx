@@ -1,247 +1,232 @@
-import { Section } from "@/components/ui/Section";
-import { Truck, HardHat, ShieldCheck, Factory, Wind, Droplets, Warehouse, Construction } from "lucide-react";
+"use client";
+
+import { Truck, HardHat, ShieldCheck, Factory, Wind, Droplets, Warehouse, Construction, ArrowRight, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { motion } from "framer-motion";
 
 const services = [
     {
-        title: "Water Tanker Supply Month Rental",
-        description: "Bulk construction water supply with 12000L high-capacity tankers. Monthly rental for industrial, hotel, and commercial sites. Daily supply volume above 500 kL/day.",
-        icon: <Droplets className="w-12 h-12" />,
-        highlight: "₹ 1,50,000/Month",
-        image: "/water-tanker-side.jpg",
-        specs: [
-            { label: "Water Type", value: "Construction Water" },
-            { label: "Supply Mode", value: "Tanker Supply" },
-            { label: "Daily Volume", value: "Above 500 kL/day" },
-            { label: "Capacity", value: "12000 L" }
-        ],
-        projects: []
-    },
-    {
-        title: "Metal Roofing & Fabrication",
-        description: "Trusted manufacturer and contractor providing complete color-coated roofing solutions, on-site fabrication, and structural erection for large-scale industrial projects.",
+        title: "Metal Roofing Sheets",
+        description: "Premium manufacturer of PPGI and Colour Coated Sheets. We provide complete industrial roofing solutions including on-site fabrication and precision erection for large power plants and warehouses.",
         icon: <Warehouse className="w-12 h-12" />,
-        highlight: "₹ 400/sq ft",
+        highlight: "Premium Grade",
         image: "/metal-roofing.jpg",
         specs: [
-            { label: "Material", value: "Aluminium" },
-            { label: "Profile", value: "Deck Sheet" },
-            { label: "Thickness", value: "0.50 mm" },
-            { label: "Coating", value: "Color Coated" }
+            { label: "Material", value: "PPGI / Galvalume" },
+            { label: "Profile", value: "Trapezoidal / Decking" },
+            { label: "Thickness", value: "0.45 mm - 0.60 mm" },
+            { label: "Durability", value: "Extreme Weather" }
         ],
         projects: ["NTPC Meja", "NTPC Unchahar"]
     },
     {
+        title: "Industrial Fabrication",
+        description: "Expert structural fabrication and erection services. Specialized in heavy machinery platforms, industrial sheds, and intricate steel frameworks for utility sectors.",
+        icon: <Factory className="w-12 h-12" />,
+        highlight: "Heavy Duty",
+        image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop",
+        specs: [
+            { label: "Standards", value: "IS 2062 / ASTM" },
+            { label: "Welding", value: "Certified MIG/ARC" },
+            { label: "Capacity", value: "Bulk Structural" },
+            { label: "Finishing", value: "Epoxy / PU Coated" }
+        ],
+        projects: ["NTPC Obra", "NTPC Meja"]
+    },
+    {
         title: "Diesel Dewatering Pumps",
-        description: "Powerful diesel-driven dewatering solution for construction sites and industrial areas. Reliable water removal with high discharge capacity.",
+        description: "High-capacity diesel-driven dewatering pump rental services. Essential for construction pits, flood control, and large-scale site preparation in industrial zones.",
         icon: <Droplets className="w-12 h-12" />,
-        highlight: "₹ 20,000/Month",
-        image: "/dewatering-pump.jpg",
+        highlight: "24/7 Support",
+        image: "/Aggressor-80-180-1300x900px-768x1109-1-1.jpg",
         specs: [
             { label: "Pump Type", value: "Diesel Driven" },
-            { label: "Discharge", value: "201–300 m³/hr" },
-            { label: "Head Range", value: "≤15 m" },
-            { label: "Source", value: "Diesel Engine" }
+            { label: "Discharge", value: "Up to 300 m³/hr" },
+            { label: "Head Range", value: "≤15-30 Meters" },
+            { label: "Source", value: "High-Power Engine" }
         ],
         projects: ["NTPC Patratu"]
     },
     {
-        title: "Truck Mounted Road Sweeping",
-        description: "Advanced mechanized sweeping with wet and dry systems. Efficiently maintains clean highways, industrial zones, and municipal roads.",
-        icon: <Truck className="w-12 h-12" />,
-        highlight: "₹ 40,00,000/Unit",
-        image: "/road-sweeper.jpg",
-        specs: [
-            { label: "Machine Type", value: "Truck mounted" },
-            { label: "Sweeping Width", value: "1600 mm" },
-            { label: "Hopper", value: "6 m³" },
-            { label: "System", value: "Wet & Dry" }
-        ],
-        projects: []
-    },
-    {
         title: "Copper Slag Sandblasting",
-        description: "Manual blasting services for tanks, vessels, and structural steel. SA 2.5 surface preparation ensures maximum durability and coating adhesion.",
+        description: "Professional abrasive blasting for surface preparation (SA 2.5). Removes rust and old coatings from heavy steel structures with extreme precision for maximum coating life.",
         icon: <Wind className="w-12 h-12" />,
-        highlight: "₹ 200/sq m",
-        image: "/sandblasting.jpg",
+        highlight: "SA 2.5 Certified",
+        image: "/industrial-copper-slag-blasting-service.jpg",
         specs: [
-            { label: "Service Type", value: "Manual Blasting" },
-            { label: "Preparation", value: "SA 2.5" },
-            { label: "Grade", value: "Medium Copper Slag" },
-            { label: "Industries", value: "Power, Construction" }
+            { label: "Service", value: "Manual Blasting" },
+            { label: "Abrasive", value: "Copper Slag" },
+            { label: "Preparation", value: "SA 2.5 Standard" },
+            { label: "Application", value: "Industrial Tanks" }
         ],
         projects: ["NTPC Meja", "NSPCL Bhilai"]
     },
     {
-        title: "Ash Swallow Fabrication",
-        description: "Specialized on-site fabrication and erection of ash handling systems. Focused on safety and timely delivery in demanding power plant environments.",
-        icon: <Factory className="w-12 h-12" />,
-        highlight: "Industrial Grade",
-        image: "/ash-swallow2.jpeg",
+        title: "Road Sweeping Machines",
+        description: "Mechanical road sweeping services for industrial townships, power plants, and large factory premises. Keeps environments safe and dust-free with specialized equipment.",
+        icon: <Truck className="w-12 h-12" />,
+        highlight: "Advanced Tech",
+        image: "/road-sweeper.jpg",
         specs: [
-            { label: "Scope", value: "Fabrication & Erection" },
-            { label: "Environment", value: "Power Plants" },
-            { label: "Manpower", value: "Skilled Certified" },
-            { label: "Focus", value: "Quality & Safety" }
-        ],
-        projects: ["NTPC Gadarwara"]
-    },
-    {
-        title: "Excavation & Site Preparation",
-        description: "Heavy-duty excavation, earthmoving, and site clearing services for large-scale industrial and infrastructure projects.",
-        icon: <Construction className="w-12 h-12" />,
-        highlight: "Heavy Machinery",
-        image: "/excavation-site.jpg",
-        specs: [
-            { label: "Equipment", value: "Sany Excavators" },
-            { label: "Service", value: "Bulk Earthmoving" },
-            { label: "Application", value: "Site Preparation" },
-            { label: "Capacity", value: "High Volume" }
+            { label: "Machine", value: "Truck Mounted" },
+            { label: "System", value: "Vaccum / Wet" },
+            { label: "Area", value: "Large Perimeter" },
+            { label: "Efficiency", value: "High Speed" }
         ],
         projects: []
     },
     {
-        title: "Civil Infrastructure",
-        description: "General civil construction, site preparation, and heavy structural works for industrial and government sectors.",
-        icon: <HardHat className="w-12 h-12" />,
-        highlight: "Core Expertise",
-        image: "/workshop-team.jpg",
+        title: "Water Tanker Supply",
+        description: "Reliable bulk water tanker supply of up to 12,000L. Monthly rental services for industrial sites, construction curing, and dust suppression systems in heavy-duty zones.",
+        icon: <Droplets className="w-12 h-12" />,
+        highlight: "Bulk Supply",
+        image: "/water-tanker-side.jpg",
         specs: [
-            { label: "Standard", value: "ISO 9001:2015" },
-            { label: "Sectors", value: "Industrial, PSU" },
-            { label: "Compliance", value: "Zero Accident" },
-            { label: "Maintenace", value: "100% Owned Fleet" }
+            { label: "Capacity", value: "12000 Liters" },
+            { label: "Daily Volume", value: "500 kL+" },
+            { label: "Mode", value: "On-Site Delivery" },
+            { label: "Rental", value: "Monthly / Bulk" }
         ],
         projects: []
-    },
+    }
 ];
 
 export default function ServicesPage() {
     return (
-        <div className="flex flex-col concrete-overlay">
+        <div className="flex flex-col">
             {/* Hero Section */}
-            <section className="bg-[#1A1208] text-[#F2EDE4] py-20 md:py-32 border-b-4 border-[#D4A843]">
-                <div className="container-custom text-center space-y-6 px-4 md:px-0">
-                    <span className="text-[#D4A843] font-bold tracking-[0.4em] uppercase label-stat text-xs md:text-sm">Industrial Expertise</span>
-                    <h1 className="text-5xl md:text-8xl font-bold font-serif leading-tight text-balance">
-                        SPECIALIZED <br />
-                        <span className="text-[#D4A843]">SOLUTIONS.</span>
-                    </h1>
+            <section className="bg-navy text-off-white py-32 border-b border-off-white/10 relative overflow-hidden">
+                <div className="container-custom relative z-10 text-center space-y-6">
+                    <motion.span
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-accent-blue font-bold tracking-[0.4em] uppercase label-stat text-sm"
+                    >
+                        Industrial Expertise
+                    </motion.span>
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-6xl md:text-8xl font-black leading-tight uppercase"
+                    >
+                        PREMIUM <br />
+                        <span className="text-accent-blue">SERVICES.</span>
+                    </motion.h1>
                 </div>
             </section>
 
-            {/* Services Grid with Images */}
-            <section className="py-16 md:py-24 bg-[#F2EDE4]">
-                <div className="container-custom px-4 md:px-0">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+            {/* Services Grid */}
+            <section className="py-24 bg-off-white">
+                <div className="container-custom">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                         {services.map((service, index) => (
-                            <div key={index} className="flex flex-col bg-white border-2 border-[#D4A843]/10 hover:border-[#D4A843] transition-all duration-500 group relative">
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className="bg-white border border-navy/5 industrial-shadow group overflow-hidden flex flex-col"
+                            >
                                 <div className="aspect-video relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
                                     <Image
                                         src={service.image}
                                         alt={service.title}
                                         fill
-                                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                        className="object-cover group-hover:scale-110 transition-transform duration-700 brightness-75 group-hover:brightness-100"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1208]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                                        <span className="text-[#D4A843] font-bold uppercase label-stat text-xs tracking-widest">{service.highlight}</span>
+                                    <div className="absolute top-4 right-4 bg-accent-blue text-off-white px-3 py-1 text-[10px] font-bold uppercase label-stat tracking-widest z-10">
+                                        {service.highlight}
                                     </div>
                                 </div>
-                                <div className="p-6 md:p-8 space-y-6 flex-grow flex flex-col">
-                                    <div className="flex justify-between items-start">
-                                        <div className="text-[#D4A843]">{service.icon}</div>
-                                        {service.projects.length > 0 && (
-                                            <div className="text-right">
-                                                <span className="text-[10px] uppercase font-bold text-[#D4A843] tracking-wider block mb-1">Projects Done at</span>
-                                                {service.projects.map((p, i) => (
-                                                    <span key={i} className="text-[10px] bg-[#1A1208] text-[#F2EDE4] px-2 py-0.5 ml-1 inline-block font-bold rounded-sm">{p}</span>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </div>
-                                    <div className="space-y-2">
-                                        <h3 className="text-xl md:text-2xl font-bold text-[#2C2416] leading-tight">{service.title}</h3>
-                                        <p className="text-[#8A7A65] text-sm leading-relaxed">
+                                <div className="p-8 space-y-6 flex-grow flex flex-col justify-between">
+                                    <div className="space-y-4">
+                                        <div className="flex justify-between items-start">
+                                            <div className="text-accent-blue">{service.icon}</div>
+                                            {service.projects.length > 0 && (
+                                                <div className="flex flex-col items-end">
+                                                    <span className="text-[10px] font-bold text-navy uppercase label-stat opacity-40">Deployed at</span>
+                                                    <div className="flex gap-1 mt-1">
+                                                        {service.projects.map((p, i) => (
+                                                            <span key={i} className="text-[9px] bg-navy text-white px-2 py-0.5 font-bold uppercase label-stat">{p}</span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                        <h3 className="text-2xl font-black text-navy uppercase tracking-tight">{service.title}</h3>
+                                        <p className="text-industrial-gray text-sm leading-relaxed font-medium">
                                             {service.description}
                                         </p>
                                     </div>
 
-                                    {/* Specifications Grid */}
-                                    <div className="grid grid-cols-2 gap-3 pt-4 border-t border-[#D4A843]/10">
-                                        {service.specs.map((spec, i) => (
-                                            <div key={i} className="space-y-0.5">
-                                                <span className="text-[10px] uppercase font-bold text-[#D4A843]/60 tracking-wider block">{spec.label}</span>
-                                                <span className="text-[11px] font-bold text-[#2C2416] uppercase tracking-tight">{spec.value}</span>
-                                            </div>
-                                        ))}
-                                    </div>
+                                    <div className="space-y-6">
+                                        <div className="grid grid-cols-2 gap-4 pt-6 border-t border-navy/10">
+                                            {service.specs.map((spec, i) => (
+                                                <div key={i} className="space-y-1">
+                                                    <span className="text-[10px] uppercase font-bold text-accent-blue label-stat tracking-widest block opacity-70">{spec.label}</span>
+                                                    <span className="text-xs font-black text-navy uppercase tracking-tight">{spec.value}</span>
+                                                </div>
+                                            ))}
+                                        </div>
 
-                                    <div className="mt-auto pt-6">
-                                        <Button asChild variant="outline" className="w-full rounded-none border-[#D4A843] text-[#1A1208] hover:bg-[#D4A843] hover:text-[#1A1208] transition-all font-bold uppercase text-xs label-stat tracking-widest h-12">
-                                            <Link href="/contact">Inquiry details</Link>
-                                        </Button>
+                                        <Link href="/contact" className="block">
+                                            <Button variant="outline" className="w-full border-navy text-navy hover:bg-navy hover:text-off-white h-12 font-black uppercase label-stat text-xs">
+                                                Technical Inquiry <ArrowRight className="ml-2" size={14} />
+                                            </Button>
+                                        </Link>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Quality Standard */}
-            <section className="py-16 md:py-24 bg-[#1A1208] border-y-8 border-[#D4A843]/20">
-                <div className="container-custom px-4 md:px-0">
-                    <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+            {/* Quality Commitment */}
+            <section className="py-24 bg-navy text-off-white relative overflow-hidden">
+                <div className="absolute left-0 bottom-0 w-1/3 h-1/2 bg-accent-blue/5 -skew-y-12 translate-y-1/2"></div>
+                <div className="container-custom relative z-10">
+                    <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <div className="space-y-8">
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#F2EDE4] leading-tight">
-                                Authoritative <span className="text-[#D4A843]">Safety Standards.</span>
+                            <h2 className="text-4xl md:text-6xl font-black text-off-white leading-tight uppercase">
+                                ZERO COMPROMISE <br /><span className="text-accent-blue">SAFETY STANDARDS.</span>
                             </h2>
-                            <p className="text-[#8A7A65] text-base md:text-lg leading-relaxed">
-                                We operate under strict ISO 9001:2015 protocols. Every cubic meter of concrete and every worker on site is governed by our absolute commitment to structural honesty and safety. 100% of our equipment is company-owned and maintained.
+                            <p className="text-gray-light/60 text-lg leading-relaxed font-medium">
+                                We operate under strict safety protocols and are registered with major PSUs. Every project site follows daily technical audits and uses 100% company-owned, high-performance equipment.
                             </p>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="grid sm:grid-cols-2 gap-6">
                                 {[
-                                    "Zero Accident Compliance",
-                                    "Daily Technical Audits",
-                                    "High-Strength Material Guarantee",
-                                    "PSU Standard Regularity"
+                                    "PSU Site Compliance",
+                                    "ISO 9001 Alignment",
+                                    "Zero Site Accidents",
+                                    "Expert Personnel Only"
                                 ].map((item) => (
-                                    <div key={item} className="flex items-center gap-4 text-[#D4A843] p-4 border border-[#D4A843]/20 bg-[#2C2416]/20">
+                                    <div key={item} className="flex items-center gap-4 text-accent-blue p-4 bg-off-white/5 border border-off-white/10">
                                         <ShieldCheck size={24} />
-                                        <span className="text-[#F2EDE4] font-bold uppercase label-stat tracking-[0.1em] text-[10px] md:text-xs">{item}</span>
+                                        <span className="text-off-white font-bold uppercase label-stat tracking-widest text-xs">{item}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
-                        <div className="relative aspect-video lg:aspect-square bg-[#2C2416] p-2 border-2 border-[#D4A843]/40">
-                            <Image
-                                src="/water-tanker-front.jpg"
-                                alt="Industrial Equipment"
-                                fill
-                                className="object-cover opacity-80"
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="relative industrial-shadow pt-12">
+                            <div className="bg-accent-blue p-12 text-off-white space-y-6 relative overflow-hidden">
+                                <Zap className="absolute top-0 right-0 w-64 h-64 text-off-white/10 -translate-y-1/2 translate-x-1/2" />
+                                <h3 className="text-3xl font-black uppercase leading-tight relative z-10">Trusted by NTPC for Mission-Critical Utility Support.</h3>
+                                <p className="text-off-white/80 font-bold uppercase label-stat tracking-widest text-sm relative z-10">Certified Operational Excellence Since 2010</p>
+                                <div className="pt-4 relative z-10">
+                                    <Link href="/contact">
+                                        <Button className="bg-navy text-off-white hover:bg-off-white hover:text-navy border-none h-14 px-10 font-black uppercase label-stat">
+                                            Request Service Quote
+                                        </Button>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Gold CTA Band */}
-            <section className="bg-[#D4A843] py-16 md:py-24 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 -rotate-45 translate-x-32 -translate-y-32"></div>
-                <div className="container-custom text-center space-y-8 px-4 md:px-0 relative z-10">
-                    <h2 className="text-4xl md:text-7xl font-bold text-[#1A1208] font-serif leading-none tracking-tighter">DEMAND PRECISION.</h2>
-                    <p className="text-[#1A1208] text-base md:text-xl font-bold uppercase tracking-[0.3em] label-stat max-w-2xl mx-auto">Grounded solutions for high-stakes industrial environments.</p>
-                    <div className="pt-4">
-                        <Button asChild className="bg-[#1A1208] text-[#D4A843] hover:bg-[#F2EDE4] hover:text-[#1A1208] transition-all rounded-none px-12 h-20 text-lg md:text-2xl font-bold uppercase label-stat shadow-2xl">
-                            <Link href="/contact">
-                                Request a Consultation
-                            </Link>
-                        </Button>
                     </div>
                 </div>
             </section>
