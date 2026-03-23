@@ -63,7 +63,7 @@ export default function Home() {
             {/* Background Pattern/Overlay */}
             <div className="absolute inset-0 opacity-20">
                <Image
-                  src="/excavation-site.jpg"
+                  src="/renusagar.jpeg"
                   alt="Industrial Background"
                   fill
                   className="object-cover"
@@ -85,9 +85,11 @@ export default function Home() {
                      <span className="text-accent-blue font-bold tracking-[0.2em] uppercase label-stat">Trusted Industrial Partner</span>
                   </div>
 
-                  <h1 className="text-5xl md:text-7xl lg:text-8xl text-off-white font-extrabold leading-[1.05] tracking-tight">
+                  <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight text-transparent stroke-text">
                      AAA INFRA <br />
-                     <span className="text-accent-blue underline decoration-4 underline-offset-8">EXPERTS</span> IN INDUSTRIAL SERVICES
+                     <span className="text-accent-blue underline decoration-4 underline-offset-8">
+                        EXPERTS
+                     </span> IN INDUSTRIAL SERVICES
                   </h1>
 
                   <p className="text-xl text-gray-light/80 max-w-lg leading-relaxed font-medium">
